@@ -10,8 +10,7 @@ public class LifesLabelMediator : MonoBehaviour
     {
         lifesText.text = $"Lives: {GameplayModel.Instance.Lives}";
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if (GameplayModel.Instance.Lives != _lastLives)

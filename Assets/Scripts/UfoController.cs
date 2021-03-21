@@ -4,7 +4,7 @@ public class UfoController : MonoBehaviour
 {
     private float speed = 5.0f;
     private Vector3 _moveDirection = Vector3.right;
-    
+
     void Update()
     {
         transform.Translate(Time.deltaTime * speed * _moveDirection);
@@ -17,5 +17,4 @@ public class UfoController : MonoBehaviour
             _moveDirection = Vector3.left;
         }
     }
-    
 }
