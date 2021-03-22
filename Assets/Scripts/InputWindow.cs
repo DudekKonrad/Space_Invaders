@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Models;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -18,14 +19,10 @@ public class InputWindow : MonoBehaviour
         string jsonString = PlayerPrefs.GetString("highScoreTable");
         _highScores = JsonUtility.FromJson<Leaderboard.HighScores>(jsonString);
         bool isEmpty = !_highScores.HighScoreList.Any();
-        Debug.Log($"Is empty:{isEmpty}");
-        Debug.Log($"List: {_highScores.HighScoreList}");
         if (!isEmpty)
         {
             for (int i = 0; i < _highScores.HighScoreList.Count; i++)
             {
-                Debug.Log($"{_highScores.HighScoreList[i].playerName}: ");
-                Debug.Log($"{_highScores.HighScoreList[i].score}: ");
                 for (int j = 0; j < _highScores.HighScoreList.Count; j++)
                 {
                     if (_highScores.HighScoreList[j].score < _highScores.HighScoreList[i].score)
@@ -36,25 +33,26 @@ public class InputWindow : MonoBehaviour
                     }
                 }
             }
-            _highestHighScore = _highScores.HighScoreList[_highScores.HighScoreList.Count-1].score;
+
+            _highestHighScore = _highScores.HighScoreList[_highScores.HighScoreList.Count - 1].score;
             string json = JsonUtility.ToJson(_highScores);
             PlayerPrefs.SetString("highScoreTable", json);
         }
         else
         {
-            _highestHighScore = -1;   
+            _highestHighScore = -1;
         }
     }
 
     private void Update()
     {
-        if (GameplayModel.Instance.GameState == GameplayModel.GameStates.GameEnded && GameplayModel.Instance.Score > _highestHighScore)
+        if (GameplayModel.Instance.GameState == GameplayModel.GameStates.GameEnded &&
+            GameplayModel.Instance.Score > _highestHighScore)
         {
             inputWindow.gameObject.SetActive(true);
         }
-        
     }
-    
+
     public void AddToHighScores()
     {
         _playerHighScore = new Leaderboard.HighScore(GameplayModel.Instance.Score, inputField.text);
@@ -65,5 +63,4 @@ public class InputWindow : MonoBehaviour
         PlayerPrefs.SetString("highScoreTable", json);
         SceneManager.LoadScene("MainMenu");
     }
-    
 }
