@@ -1331,6 +1331,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 313973488, guid: b14256ae29f11904c8c7af4a23dc32df, type: 3}
+      propertyPath: playerConfig
+      value: 
+      objectReference: {fileID: 11400000, guid: ff56762e4e5843a48ab7ca1f4a0cefe5,
+        type: 2}
     - target: {fileID: 313973492, guid: b14256ae29f11904c8c7af4a23dc32df, type: 3}
       propertyPath: m_Controller
       value: 
@@ -2105,7 +2110,7 @@ Transform:
   m_GameObject: {fileID: 1391726077}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9, y: 0.9, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -2302,6 +2307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8c1f2d984c5824a88cdbca3928ab24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerConfig: {fileID: 11400000, guid: ff56762e4e5843a48ab7ca1f4a0cefe5, type: 2}
 --- !u!4 &1663132709
 Transform:
   m_ObjectHideFlags: 0

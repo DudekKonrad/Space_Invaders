@@ -1,15 +1,22 @@
 ﻿using Models;
+using ScriptableObjects;
 using UnityEngine;
 
 namespace Controllers
 {
-    public class PlayerProjectile : MonoBehaviour
+    public class PlayerProjectileController : MonoBehaviour
     {
         public GameObject projectile;
+        public ProjectileScriptable projectileConfig;
+
+        private void Start()
+        {
+            Destroy(gameObject, projectileConfig.timeToDestroy);
+        }
 
         public void Update()
         {
-            transform.Translate(new Vector3(0, 4*Time.deltaTime, 0));
+            transform.Translate(new Vector3(0, projectileConfig.speed * Time.deltaTime, 0));
         }
 
         private void OnCollisionEnter2D(Collision2D other)

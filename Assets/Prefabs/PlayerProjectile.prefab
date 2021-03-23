@@ -10,13 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5488983862196948068}
   - component: {fileID: 5488983862196948075}
-  - component: {fileID: 5488983862196948069}
   - component: {fileID: 5488983862196948071}
   - component: {fileID: 5488983862196948070}
-  - component: {fileID: 7561145272557168391}
-  - component: {fileID: -9002073417714286376}
+  - component: {fileID: -7044212728342838869}
   m_Layer: 8
-  m_Name: Projectile
+  m_Name: PlayerProjectile
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,19 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5488983862196948069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5488983862196948074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e64c2ef1e58781948b90f62bda34e217, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectile: {fileID: 5488983862196948074}
 --- !u!61 &5488983862196948071
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -146,7 +131,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!114 &7561145272557168391
+--- !u!114 &-7044212728342838869
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -155,19 +140,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 5488983862196948074}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e64c2ef1e58781948b90f62bda34e217, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c477a6623c5dee4caaf2fd2d088d0a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 5488983862196948074}
---- !u!114 &-9002073417714286376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5488983862196948074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02b8ea425ef7e3f42b320fdd8793703b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  projectileConfig: {fileID: 11400000, guid: eaf99631b68b7154c84481aee9dcad34, type: 2}

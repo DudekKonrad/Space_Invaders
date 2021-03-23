@@ -1,16 +1,22 @@
 ﻿using Models;
+using ScriptableObjects;
 using UnityEngine;
 
 namespace Controllers
 {
-    public class EnemyProjectile : MonoBehaviour
+    public class EnemyProjectileController : MonoBehaviour
     {
         public GameObject enemyProjectile;
-        public float speed = -4.0f;
+        public ProjectileScriptable projectileConfig;
+
+        private void Start()
+        {
+            Destroy(gameObject, projectileConfig.timeToDestroy);
+        }
 
         private void Update()
         {
-            transform.Translate(new Vector3(0, speed*Time.deltaTime, 0));
+            transform.Translate(new Vector3(0, projectileConfig.speed * Time.deltaTime, 0));
         }
 
         private void OnCollisionEnter2D(Collision2D other)
@@ -26,7 +32,7 @@ namespace Controllers
                 Destroy(enemyProjectile);
             }
 
-            if (other.gameObject.GetComponent<PlayerProjectile>())
+            if (other.gameObject.GetComponent<PlayerProjectileController>())
             {
                 Destroy(gameObject);
                 Destroy(other.gameObject);

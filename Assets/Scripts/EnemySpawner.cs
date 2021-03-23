@@ -18,17 +18,17 @@ public class EnemySpawner : MonoBehaviour
     public void SpawnAliens()
     {
         var xPos = -8.0f;
-        var yPos = 1.0f;
+        var yPos = 3.5f;
         
         for (int i = 0; i < _waves[_waveNumber].Rows; i++)
         {
             for (int j = 0; j < _waves[_waveNumber].NumberOfAliensInRow; j++)
             {
                 _waves[_waveNumber].AlienClone = Instantiate(aliens[i], enemiesContainer.transform);
-                _waves[_waveNumber].AlienClone.transform.Translate(new Vector3(xPos, yPos, 0));
+                _waves[_waveNumber].AlienClone.transform.position = new Vector3(xPos, yPos, 0);
                 xPos += 1.2f;   
             }
-            yPos -= 1.0f;
+            yPos -= 1.1f;
             xPos = -8f;
         }
     }

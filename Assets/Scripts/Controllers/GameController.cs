@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using Models;
+using ScriptableObjects;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +9,7 @@ namespace Controllers
 {
     public class GameController : MonoBehaviour
     {
+        public PlayerScriptable playerConfig;
         private void Update()
         {
             switch (GameplayModel.Instance.GameState)
@@ -18,9 +20,11 @@ namespace Controllers
             
                 //INIT STATE
                 case GameplayModel.GameStates.Init:
-                    GameplayModel.Instance.Lives = 3;
+                    Debug.Log($"Init started");
+                    GameplayModel.Instance.Lives = playerConfig.lives;
+                    Debug.Log($"After lives");
                     GameplayModel.Instance.Score = 0;
-                    GameplayModel.Instance.Wave = 1;
+                    GameplayModel.Instance.Wave = 0;
                     GameplayModel.Instance.CountdownTime = 3;
                     GameplayModel.Instance.IsUfoAlive = true;
                     SceneManager.LoadScene("Game");

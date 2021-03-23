@@ -1,4 +1,6 @@
-﻿namespace Models
+﻿using UnityEngine;
+
+namespace Models
 {
     public class GameplayModel:Singleton<GameplayModel>
     {
@@ -20,5 +22,6 @@
         public int Wave { get; set; }
         public int CountdownTime{ get; set; }
         public bool IsUfoAlive { get; set; } = true;
+        public int NumberOfEnemies { get; set; }
     }
 }

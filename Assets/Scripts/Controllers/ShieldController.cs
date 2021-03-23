@@ -16,7 +16,7 @@ namespace Controllers
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            if (other.gameObject.GetComponent<EnemyProjectile>() || other.gameObject.GetComponent<PlayerProjectile>())
+            if (other.gameObject.GetComponent<EnemyProjectileController>() || other.gameObject.GetComponent<PlayerProjectileController>())
             {
                 _counter++;
                 _spriteRenderer.sprite = sprites[_counter];

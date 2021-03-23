@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using ScriptableObjects;
+using UnityEngine;
 using Views;
 
 namespace Controllers
@@ -6,7 +7,7 @@ namespace Controllers
     [RequireComponent(typeof(PlayerInputMediator))]
     public class PlayerController : MonoBehaviour
     {
-        private const float XRange = 8.0f;
+        public PlayerScriptable playerConfig;
         public GameObject projectilePrefab;
         public GameObject projectilePrefabClone;
         public AudioSource shootSound;
@@ -24,15 +25,15 @@ namespace Controllers
         private void OnMove(float horizontalInput)
         {
             transform.Translate(horizontalInput * Time.deltaTime * speed * Vector3.right);
-            if (transform.position.x < -XRange)
+            if (transform.position.x < -playerConfig.xRange)
             {
-                transform.position = new Vector3(-XRange, transform.position.y, transform.position.z);
+                transform.position = new Vector3(-playerConfig.xRange, transform.position.y, transform.position.z);
             }
 
-            if (transform.position.x > XRange)
+            if (transform.position.x > playerConfig.xRange)
             {
                 var position = transform.position;
-                position = new Vector3(XRange, position.y, position.z);
+                position = new Vector3(playerConfig.xRange, position.y, position.z);
                 transform.position = position;
             }
         }
