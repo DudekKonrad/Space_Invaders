@@ -1651,7 +1651,7 @@ GameObject:
   - component: {fileID: 1030872359}
   - component: {fileID: 1030872358}
   m_Layer: 5
-  m_Name: CountdownTimer
+  m_Name: CountdownText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2339,10 +2339,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1663132707}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c658e053a434d94fadc714a4b7d8458, type: 3}
+  m_Script: {fileID: 11500000, guid: 67c812bf218b8474c9428eb5efec3409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countdownDisplay: {fileID: 1030872358}
+  scoreText: {fileID: 1030872358}
 --- !u!1 &1763871778
 GameObject:
   m_ObjectHideFlags: 0

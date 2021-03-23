@@ -29,7 +29,7 @@ namespace Controllers
                 
                 //COUNTDOWN STATE
                 case GameplayModel.GameStates.Countdown:
-                    StartCoroutine(CountdownToStart());
+                    StartCoroutine(CountdownToStart(3));
                     break;
                 
                 //GAMEPLAY STATE
@@ -64,14 +64,15 @@ namespace Controllers
             GameplayModel.Instance.GameState = GameplayModel.GameStates.MainMenu;
         }
         
-        private IEnumerator CountdownToStart()
+        private IEnumerator CountdownToStart(int countdownTime)
         {
-            while (GameplayModel.Instance.CountdownTime > 0)
+            while (countdownTime >= 0)
             {
-                Debug.Log($"Countdown: {GameplayModel.Instance.CountdownTime}");
                 yield return new WaitForSeconds(1.0f);
-                GameplayModel.Instance.CountdownTime--;
+                countdownTime--;
+                GameplayModel.Instance.CountdownTime = countdownTime;
             }
+            yield return new WaitForSeconds(1.0f);
             GameplayModel.Instance.GameState = GameplayModel.GameStates.Gameplay;
         }
     }

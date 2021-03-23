@@ -35,8 +35,7 @@ public class InputWindow : MonoBehaviour
             }
 
             _highestHighScore = _highScores.HighScoreList[_highScores.HighScoreList.Count - 1].score;
-            string json = JsonUtility.ToJson(_highScores);
-            PlayerPrefs.SetString("highScoreTable", json);
+            HighScoreModel.SetHighScores(_highScores);
         }
         else
         {

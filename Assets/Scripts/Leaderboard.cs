@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
+using Models;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Leaderboard : MonoBehaviour
@@ -9,6 +9,7 @@ public class Leaderboard : MonoBehaviour
     public GameObject highScoreTemplate;
     private int _counter = 1;
     public GameObject highScoreTable;
+
 
     [System.Serializable]
     public class HighScore
@@ -28,7 +29,7 @@ public class Leaderboard : MonoBehaviour
         public List<HighScore> HighScoreList;
     }
 
-    private void SortList(List<HighScore> list)
+    public void SortList(List<HighScore> list)
     {
         for (var i = 0; i < list.Count; i++)
         {
@@ -46,7 +47,7 @@ public class Leaderboard : MonoBehaviour
 
     public void LoadTable()
     {
-        var highScores = GetHighScores();
+        var highScores = HighScoreModel.GetHighScores();
         SortList(highScores.HighScoreList);
         foreach (var highScore in highScores.HighScoreList)
         {
@@ -61,27 +62,5 @@ public class Leaderboard : MonoBehaviour
         }
         highScoreTable.gameObject.SetActive(true);
         _counter = 0;
-    }
-    
-    public void ResetHighScores()
-    {
-        var highScores = GetHighScores();
-        highScores.HighScoreList.Clear();
-        SetHighScores(highScores);
-        SceneManager.LoadScene("MainMenu");
-        LoadTable();
-    }
-
-    public HighScores GetHighScores()
-    {
-        var jsonString = PlayerPrefs.GetString("highScoreTable");
-        HighScores highScores = JsonUtility.FromJson<HighScores>(jsonString);
-        return highScores;
-    }
-
-    public void SetHighScores(HighScores highScores)
-    {
-        string json = JsonUtility.ToJson(highScores);
-        PlayerPrefs.SetString("highScoreTable", json);
     }
 }

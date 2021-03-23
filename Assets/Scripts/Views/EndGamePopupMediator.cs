@@ -27,7 +27,7 @@ namespace Views
         {
             endGamepanel.gameObject.SetActive(true);
             finalScoreText.text = $"Your Score: {GameplayModel.Instance.Score}";
-            highScoreText.text = $"High Score: {_leaderboard.GetHighScores().HighScoreList[0].score}";
+            highScoreText.text = $"High Score: {HighScoreModel.GetHighScores().HighScoreList[0].score}";
         }
     }
 }
