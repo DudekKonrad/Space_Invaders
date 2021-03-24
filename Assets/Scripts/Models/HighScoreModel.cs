@@ -2,13 +2,14 @@
 
 namespace Models
 {
-    public class HighScoreModel
+    public class HighScoreModel:Singleton<HighScoreModel>
     {
+        public Leaderboard.HighScores HighScores { get; set; } = GetHighScores();
         public void ResetHighScores()
         {
             var highScores = GetHighScores();
             highScores.HighScoreList.Clear();
-            SetHighScores(highScores);
+            SetHighScores();
         }
 
         public static Leaderboard.HighScores GetHighScores()
@@ -18,9 +19,9 @@ namespace Models
             return highScores;
         }
 
-        public static void SetHighScores(Leaderboard.HighScores highScores)
+        public void SetHighScores()
         {
-            string json = JsonUtility.ToJson(highScores);
+            string json = JsonUtility.ToJson(HighScores);
             PlayerPrefs.SetString("highScoreTable", json);
         }
     }

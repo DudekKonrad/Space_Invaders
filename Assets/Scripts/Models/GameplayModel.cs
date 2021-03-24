@@ -18,10 +18,10 @@ namespace Models
         public int Score { get; set; }
 
         public int Lives { get; set; }
-    
-        public int Wave { get; set; }
+
+        public int CurrWave { get; set; }
         public int CountdownTime{ get; set; }
-        public bool IsUfoAlive { get; set; } = true;
+        public bool IsUfoAlive { get; set; }
         public int NumberOfEnemies { get; set; }
     }
 }

@@ -352,54 +352,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &142926937
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 142926939}
-  - component: {fileID: 142926938}
-  m_Layer: 0
-  m_Name: AlienSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &142926938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 142926937}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c140798f224f47a4481e7b82d190d3ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  aliens:
-  - {fileID: 585518091350270602, guid: 2c7212628662016449a5ebdfcab12335, type: 3}
-  - {fileID: 1532347040899132301, guid: 49fe014a06745b94d88d69a60e4846fb, type: 3}
-  - {fileID: 5202474321338821989, guid: 5324021d868118d4bba13ead228df5b0, type: 3}
-  enemiesContainer: {fileID: 1391726077}
---- !u!4 &142926939
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 142926937}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -56.030586}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &183221958
 GameObject:
   m_ObjectHideFlags: 0
@@ -1690,7 +1642,7 @@ MonoBehaviour:
     m_MaxSize: 80
     m_Alignment: 4
     m_AlignByGeometry: 0
-    m_RichText: 1
+    m_RichText: 0
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
@@ -2095,7 +2047,7 @@ GameObject:
   - component: {fileID: 1391726078}
   - component: {fileID: 1391726081}
   m_Layer: 8
-  m_Name: Enemies
+  m_Name: EnemiesContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2201,6 +2153,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1436794080}
   m_CullTransparentMesh: 0
+--- !u!1 &1490295736
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1490295738}
+  - component: {fileID: 1490295737}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1490295737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490295736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c140798f224f47a4481e7b82d190d3ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySpawnerConfig: {fileID: 11400000, guid: 10090f6ed0bdc2a439e19c06a04de37e, type: 2}
+  enemiesContainer: {fileID: 1391726077}
+  alienClone: {fileID: 0}
+--- !u!4 &1490295738
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490295736}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.3685093, y: 0.2141582, z: -75.99109}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1630795077
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2285,9 +2283,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1663132709}
-  - component: {fileID: 1663132708}
   - component: {fileID: 1663132710}
   - component: {fileID: 1663132711}
+  - component: {fileID: 1663132708}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2304,10 +2302,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1663132707}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af8c1f2d984c5824a88cdbca3928ab24, type: 3}
+  m_Script: {fileID: 11500000, guid: 90d8f45670c397644a29b01e41bc452b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerConfig: {fileID: 11400000, guid: ff56762e4e5843a48ab7ca1f4a0cefe5, type: 2}
+  gameplayConfig: {fileID: 11400000, guid: 543a9a124fee67f46b51ee1a29d2c663, type: 2}
+  enemySpawner: {fileID: 1490295737}
 --- !u!4 &1663132709
 Transform:
   m_ObjectHideFlags: 0

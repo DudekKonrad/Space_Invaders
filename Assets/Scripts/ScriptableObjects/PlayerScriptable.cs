@@ -7,5 +7,6 @@ namespace ScriptableObjects
    {
       public int lives;
       public float xRange;
+      public int score;
    }
 }

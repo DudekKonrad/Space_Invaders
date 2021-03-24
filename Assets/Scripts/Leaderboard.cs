@@ -37,7 +37,7 @@ public class Leaderboard : MonoBehaviour
             {
                 if (list[j].score < list[i].score)
                 {
-                    HighScore tmp = list[i];
+                    var tmp = list[i];
                     list[i] = list[j];
                     list[j] = tmp;
                 }
@@ -47,12 +47,11 @@ public class Leaderboard : MonoBehaviour
 
     public void LoadTable()
     {
-        var highScores = HighScoreModel.GetHighScores();
+        var highScores = HighScoreModel.Instance.HighScores;
         SortList(highScores.HighScoreList);
         foreach (var highScore in highScores.HighScoreList)
         {
-            Debug.Log($"{highScore.playerName}: {highScore.score}");
-            GameObject newHighScore = Instantiate(highScoreTemplate, highScoreContainer.transform);
+            var newHighScore = Instantiate(highScoreTemplate, highScoreContainer.transform);
             newHighScore.transform.Translate(Vector3.down * 20 * _counter);
             newHighScore.transform.Find("posText").GetComponent<Text>().text = _counter.ToString();
             newHighScore.transform.Find("scoreText").GetComponent<Text>().text = highScore.score.ToString();
@@ -62,5 +61,10 @@ public class Leaderboard : MonoBehaviour
         }
         highScoreTable.gameObject.SetActive(true);
         _counter = 0;
+    }
+
+    public void CloseTable()
+    {
+        highScoreTable.gameObject.SetActive(false);
     }
 }

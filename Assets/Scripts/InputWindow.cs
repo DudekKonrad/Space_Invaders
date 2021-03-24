@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class InputWindow : MonoBehaviour
 {
     public GameObject inputWindow;
-    private Leaderboard.HighScores _highScores;
     private Leaderboard.HighScore _playerHighScore;
     private int _highestHighScore;
     public InputField inputField;
@@ -16,26 +15,24 @@ public class InputWindow : MonoBehaviour
     private void Start()
     {
         inputField.characterLimit = 7;
-        string jsonString = PlayerPrefs.GetString("highScoreTable");
-        _highScores = JsonUtility.FromJson<Leaderboard.HighScores>(jsonString);
-        bool isEmpty = !_highScores.HighScoreList.Any();
+        var isEmpty = !HighScoreModel.Instance.HighScores.HighScoreList.Any();
         if (!isEmpty)
         {
-            for (int i = 0; i < _highScores.HighScoreList.Count; i++)
+            for (var i = 0; i < HighScoreModel.Instance.HighScores.HighScoreList.Count; i++)
             {
-                for (int j = 0; j < _highScores.HighScoreList.Count; j++)
+                for (var j = 0; j < HighScoreModel.Instance.HighScores.HighScoreList.Count; j++)
                 {
-                    if (_highScores.HighScoreList[j].score < _highScores.HighScoreList[i].score)
+                    if (HighScoreModel.Instance.HighScores.HighScoreList[j].score < HighScoreModel.Instance.HighScores.HighScoreList[i].score)
                     {
-                        var tmp = _highScores.HighScoreList[i];
-                        _highScores.HighScoreList[i] = _highScores.HighScoreList[j];
-                        _highScores.HighScoreList[j] = tmp;
+                        var tmp = HighScoreModel.Instance.HighScores.HighScoreList[i];
+                        HighScoreModel.Instance.HighScores.HighScoreList[i] = HighScoreModel.Instance.HighScores.HighScoreList[j];
+                        HighScoreModel.Instance.HighScores.HighScoreList[j] = tmp;
                     }
                 }
             }
 
-            _highestHighScore = _highScores.HighScoreList[_highScores.HighScoreList.Count - 1].score;
-            HighScoreModel.SetHighScores(_highScores);
+            _highestHighScore = HighScoreModel.Instance.HighScores.HighScoreList[HighScoreModel.Instance.HighScores.HighScoreList.Count - 1].score;
+            HighScoreModel.Instance.SetHighScores();
         }
         else
         {
@@ -55,11 +52,7 @@ public class InputWindow : MonoBehaviour
     public void AddToHighScores()
     {
         _playerHighScore = new Leaderboard.HighScore(GameplayModel.Instance.Score, inputField.text);
-        string jsonString = PlayerPrefs.GetString("highScoreTable");
-        _highScores = JsonUtility.FromJson<Leaderboard.HighScores>(jsonString);
-        _highScores.HighScoreList.Add(_playerHighScore);
-        string json = JsonUtility.ToJson(_highScores);
-        PlayerPrefs.SetString("highScoreTable", json);
+        HighScoreModel.Instance.HighScores.HighScoreList.Add(_playerHighScore);
         SceneManager.LoadScene("MainMenu");
     }
 }

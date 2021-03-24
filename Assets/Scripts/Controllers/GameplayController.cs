@@ -7,9 +7,11 @@ using UnityEngine.SceneManagement;
 
 namespace Controllers
 {
-    public class GameController : MonoBehaviour
+    public class GameplayController : MonoBehaviour
     {
         public PlayerScriptable playerConfig;
+        public GameplayScriptable gameplayConfig;
+        public EnemySpawner enemySpawner;
         private void Update()
         {
             switch (GameplayModel.Instance.GameState)
@@ -20,14 +22,13 @@ namespace Controllers
             
                 //INIT STATE
                 case GameplayModel.GameStates.Init:
-                    Debug.Log($"Init started");
                     GameplayModel.Instance.Lives = playerConfig.lives;
-                    Debug.Log($"After lives");
-                    GameplayModel.Instance.Score = 0;
-                    GameplayModel.Instance.Wave = 0;
-                    GameplayModel.Instance.CountdownTime = 3;
+                    GameplayModel.Instance.Score = playerConfig.score;
+                    GameplayModel.Instance.CurrWave = 0;
                     GameplayModel.Instance.IsUfoAlive = true;
-                    SceneManager.LoadScene("Game");
+                    enemySpawner.InitWaves();
+                    enemySpawner.SpawnAliens();
+                    GameplayModel.Instance.CountdownTime = gameplayConfig.countDownTime;
                     GameplayModel.Instance.GameState = GameplayModel.GameStates.Countdown;
                     break;
                 
@@ -38,9 +39,10 @@ namespace Controllers
                 
                 //GAMEPLAY STATE
                 case GameplayModel.GameStates.Gameplay:
+                    enemySpawner.CheckWave();
                     if (GameplayModel.Instance.Lives == 0 || !GameplayModel.Instance.IsUfoAlive)
                     {
-                        EndGame();
+                        GameplayModel.Instance.GameState = GameplayModel.GameStates.GameEnded;
                     }
                     break;
             
@@ -52,23 +54,13 @@ namespace Controllers
             }
         }
 
-        public void EndGame()
-        {
-            GameplayModel.Instance.GameState = GameplayModel.GameStates.GameEnded;
-        }
-
-        public void StartGame()
-        {
-            GameplayModel.Instance.GameState = GameplayModel.GameStates.Init;
-        }
-
         public void StartMainMenu()
         {
-            SceneManager.LoadScene("MainMenu");
             GameplayModel.Instance.GameState = GameplayModel.GameStates.MainMenu;
+            SceneManager.LoadScene("MainMenu");
         }
         
-        private IEnumerator CountdownToStart(int countdownTime)
+        private static IEnumerator CountdownToStart(int countdownTime)
         {
             while (countdownTime >= 0)
             {
