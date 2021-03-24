@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class InputWindow : MonoBehaviour
 {
     public GameObject inputWindow;
-    private Leaderboard.HighScore _playerHighScore;
+    private HighScoreModel.HighScore _playerHighScore;
     private int _highestHighScore;
     public InputField inputField;
 
@@ -15,24 +15,11 @@ public class InputWindow : MonoBehaviour
     private void Start()
     {
         inputField.characterLimit = 7;
-        var isEmpty = !HighScoreModel.Instance.HighScores.HighScoreList.Any();
+        var isEmpty = !HighScoreModel.Instance.HighScoreList.Any();
         if (!isEmpty)
         {
-            for (var i = 0; i < HighScoreModel.Instance.HighScores.HighScoreList.Count; i++)
-            {
-                for (var j = 0; j < HighScoreModel.Instance.HighScores.HighScoreList.Count; j++)
-                {
-                    if (HighScoreModel.Instance.HighScores.HighScoreList[j].score < HighScoreModel.Instance.HighScores.HighScoreList[i].score)
-                    {
-                        var tmp = HighScoreModel.Instance.HighScores.HighScoreList[i];
-                        HighScoreModel.Instance.HighScores.HighScoreList[i] = HighScoreModel.Instance.HighScores.HighScoreList[j];
-                        HighScoreModel.Instance.HighScores.HighScoreList[j] = tmp;
-                    }
-                }
-            }
-
-            _highestHighScore = HighScoreModel.Instance.HighScores.HighScoreList[HighScoreModel.Instance.HighScores.HighScoreList.Count - 1].score;
-            HighScoreModel.Instance.SetHighScores();
+            HighScoreModel.Instance.SortHighScores();
+            _highestHighScore = HighScoreModel.Instance.HighScoreList[HighScoreModel.Instance.HighScoreList.Count - 1].score;
         }
         else
         {
@@ -42,8 +29,7 @@ public class InputWindow : MonoBehaviour
 
     private void Update()
     {
-        if (GameplayModel.Instance.GameState == GameplayModel.GameStates.GameEnded &&
-            GameplayModel.Instance.Score > _highestHighScore)
+        if (GameplayModel.Instance.GameState == GameplayModel.GameStates.GameEnded && GameplayModel.Instance.Score > _highestHighScore)
         {
             inputWindow.gameObject.SetActive(true);
         }
@@ -51,8 +37,10 @@ public class InputWindow : MonoBehaviour
 
     public void AddToHighScores()
     {
-        _playerHighScore = new Leaderboard.HighScore(GameplayModel.Instance.Score, inputField.text);
-        HighScoreModel.Instance.HighScores.HighScoreList.Add(_playerHighScore);
+        _playerHighScore = new HighScoreModel.HighScore(GameplayModel.Instance.Score, inputField.text);
+        HighScoreModel.Instance.HighScoreList.Add(_playerHighScore);
+        HighScoreModel.Instance.SortHighScores();
+        HighScoreModel.Instance.SetHighScores();
         SceneManager.LoadScene("MainMenu");
     }
 }

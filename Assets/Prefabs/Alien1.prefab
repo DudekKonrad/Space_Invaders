@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 3165959399498572681}
   - component: {fileID: 7134262685414172568}
   - component: {fileID: 1787330817028526121}
-  - component: {fileID: 2857862665069675036}
-  - component: {fileID: 885778065}
   - component: {fileID: 211234764152497816}
+  - component: {fileID: -1521080411409342990}
   m_Layer: 8
   m_Name: Alien1
   m_TagString: Untagged
@@ -133,33 +132,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0
---- !u!114 &2857862665069675036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 585518091350270602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3da5d03051065541822e72dd44849b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 585518091350270602}
-  enemyProjectile: {fileID: 3743027250296067086, guid: feef6e58b6d57d44aa907d503d32a003,
-    type: 3}
---- !u!114 &885778065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 585518091350270602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1178171eb3e89a49a374f2ce4ba87df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &211234764152497816
 Animator:
   serializedVersion: 3
@@ -179,3 +151,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-1521080411409342990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585518091350270602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3da5d03051065541822e72dd44849b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 585518091350270602}
+  enemyProjectile: {fileID: 3743027250296067086, guid: feef6e58b6d57d44aa907d503d32a003,
+    type: 3}
+  enemyConfig: {fileID: 11400000, guid: 99f3d5c03f4838f4b9632654363f265b, type: 2}

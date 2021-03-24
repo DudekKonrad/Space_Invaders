@@ -16,4 +16,4 @@ MonoBehaviour:
   - {fileID: 585518091350270602, guid: 2c7212628662016449a5ebdfcab12335, type: 3}
   - {fileID: 1532347040899132301, guid: 49fe014a06745b94d88d69a60e4846fb, type: 3}
   - {fileID: 5202474321338821989, guid: 5324021d868118d4bba13ead228df5b0, type: 3}
-  numberOfWaves: 11
+  numberOfWaves: 10

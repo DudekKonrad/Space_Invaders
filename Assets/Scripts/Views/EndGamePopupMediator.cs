@@ -27,7 +27,14 @@ namespace Views
         {
             endGamepanel.gameObject.SetActive(true);
             finalScoreText.text = $"Your Score: {GameplayModel.Instance.Score}";
-            highScoreText.text = $"High Score: {HighScoreModel.GetHighScores().HighScoreList[0].score}";
+            if (HighScoreModel.Instance.HighScoreList[0] == null)
+            {
+                highScoreText.text = $"High Score: 0";    
+            }
+            else
+            {
+                highScoreText.text = $"High Score: {HighScoreModel.Instance.HighScoreList[0].score}";   
+            }
         }
     }
 }

@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace Models
+﻿namespace Models
 {
     public class GameplayModel:Singleton<GameplayModel>
     {

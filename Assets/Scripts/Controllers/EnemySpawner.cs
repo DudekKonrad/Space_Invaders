@@ -29,7 +29,6 @@ namespace Controllers
             for (var i = 0; i < _waves.Length; i++)
             {
                 _waves[i] = new Wave(i+1, 3);
-                Debug.Log($"Wave[{i}]: {_waves[i].NumberOfAliensInRow}");
             }
         }
         public void SpawnAliens()
@@ -52,9 +51,12 @@ namespace Controllers
 
         public void CheckWave()
         {
+            if (currWave == enemySpawnerConfig.numberOfWaves)
+            {
+                GameplayModel.Instance.GameState = GameplayModel.GameStates.GameEnded;
+            }
             if (enemiesContainer.transform.childCount == 0)
             {
-                Debug.Log("Next Wave is coming!");
                 GameplayModel.Instance.CurrWave++;
                 SpawnAliens();
             }

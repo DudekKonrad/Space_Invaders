@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using Models;
+using ScriptableObjects;
+using UnityEngine;
 using Views;
 using Random = UnityEngine.Random;
 
@@ -9,43 +12,44 @@ namespace Controllers
         private float _timer;
         private float timeToMove = 0.5f;
         private int _numOfMoves;
-        private float _enemySpeed = 0.25f;
-        private float _shootSpeed = 3500f;
+        private int _direction = 1;
         public GameObject enemy;
         public GameObject enemyProjectile;
-        private EnemyMediator _enemyMediator;
+        public EnemyScriptable enemyConfig;
 
-        private void Start()
+        private void Update()
         {
-            _enemyMediator = gameObject.GetComponent<EnemyMediator>();
-            _enemyMediator.Shoot += ONEnemyShoot;
-            _enemyMediator.Move += ONEnemyMove;
+            if (GameplayModel.Instance.GameState == GameplayModel.GameStates.Gameplay)
+            {
+                EnemyMove();
+                EnemyShoot();   
+            }
         }
 
-        private void ONEnemyShoot()
+        private void EnemyShoot()
         {
-            if (Random.Range(0f, _shootSpeed) < 1 || enemyProjectile == null)
+            if (Random.Range(0f, enemyConfig.shootSpeed) < 1 || enemyProjectile == null)
             {
                 var position = enemy.transform.position;
                 Instantiate(enemyProjectile, new Vector3(position.x, position.y - 0.4f,0), transform.rotation);
             }
         }
 
-        private void ONEnemyMove()
+        private void EnemyMove()
         {
             _timer += Time.deltaTime;
-            if (_timer > timeToMove && _numOfMoves < 9)
+            if (_timer > timeToMove && _numOfMoves < enemyConfig.numberOfMoves)
             {
-                transform.Translate(new Vector3(_enemySpeed, 0, 0));
+                transform.Translate(new Vector3(enemyConfig.enemySpeed * _direction, 0, 0));
                 _timer = 0;
                 _numOfMoves++;
             }
 
-            if (_numOfMoves == 9)
+            if (_numOfMoves == enemyConfig.numberOfMoves)
             {
                 transform.Translate(new Vector3(0, -0.5f, 0));
-                _numOfMoves = -9;
-                _enemySpeed = -_enemySpeed;
+                _numOfMoves = -enemyConfig.numberOfMoves;
+                _direction = -_direction;
                 _timer = 0;
             }
         }

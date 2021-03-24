@@ -10,11 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 9094016342662693674}
   - component: {fileID: 3015880648502495715}
-  - component: {fileID: 4137337554752833453}
-  - component: {fileID: 731325959526086087}
   - component: {fileID: 1013001496649245259}
   - component: {fileID: 5538647163919941686}
   - component: {fileID: -5619069128488190845}
+  - component: {fileID: -5306638687038825592}
   m_Layer: 8
   m_Name: Alien3
   m_TagString: Untagged
@@ -87,33 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4137337554752833453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5202474321338821989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3da5d03051065541822e72dd44849b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 5202474321338821989}
-  enemyProjectile: {fileID: 3743027250296067086, guid: feef6e58b6d57d44aa907d503d32a003,
-    type: 3}
---- !u!114 &731325959526086087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5202474321338821989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1178171eb3e89a49a374f2ce4ba87df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &1013001496649245259
 Animator:
   serializedVersion: 3
@@ -180,3 +152,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.122103035, y: 0.14142697}
   m_EdgeRadius: 0
+--- !u!114 &-5306638687038825592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5202474321338821989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3da5d03051065541822e72dd44849b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 5202474321338821989}
+  enemyProjectile: {fileID: 3743027250296067086, guid: feef6e58b6d57d44aa907d503d32a003,
+    type: 3}
+  enemyConfig: {fileID: 11400000, guid: 99f3d5c03f4838f4b9632654363f265b, type: 2}
