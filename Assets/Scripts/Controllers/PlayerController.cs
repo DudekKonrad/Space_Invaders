@@ -11,7 +11,6 @@ namespace Controllers
         public GameObject projectilePrefab;
         public GameObject projectilePrefabClone;
         public AudioSource shootSound;
-        public float speed = 10.0f;
         private PlayerInputMediator _playerInputMediator;
 
         public void Start()
@@ -24,7 +23,7 @@ namespace Controllers
 
         private void OnMove(float horizontalInput)
         {
-            transform.Translate(horizontalInput * Time.deltaTime * speed * Vector3.right);
+            transform.Translate(horizontalInput * Time.deltaTime * playerConfig.speed * Vector3.right);
             if (transform.position.x < -playerConfig.xRange)
             {
                 transform.position = new Vector3(-playerConfig.xRange, transform.position.y, transform.position.z);

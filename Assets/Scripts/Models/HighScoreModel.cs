@@ -26,7 +26,6 @@ namespace Models
         public void SetHighScores()
         {
             string json = JsonUtility.ToJson(HighScoreList);
-            Debug.Log($"Json in set: {json}");
             PlayerPrefs.SetString("highScoreTable", json);
         }
         
@@ -75,21 +74,13 @@ namespace Models
 
         public void InitHighScores()
         {
-            PlayerPrefs.DeleteAll();
             if (!Init)
             {
                 HighScoreList = GetHighScores();
-                Debug.Log($"in init");
                 if (HighScoreList == null)
                 {
-                    Debug.Log("Is null");
                     HighScoreList = new Hs();
                     SetHighScores();
-                }
-                else
-                {
-                    Debug.Log($"IS not null");
-                    Debug.Log($"{HighScoreList.highScoreList}");
                 }
             }
 

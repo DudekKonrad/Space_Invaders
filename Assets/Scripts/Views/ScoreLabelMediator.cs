@@ -11,7 +11,7 @@ namespace Views
 
         private void Start()
         {
-            scoreText.text = $"Score: {GameplayModel.Instance.Score}";
+            scoreText.text = $"Score: 0";
         }
 
         private void Update()

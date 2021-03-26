@@ -16,5 +16,10 @@ namespace Controllers
             SceneManager.LoadScene("Game");
             GameplayModel.Instance.GameState = GameplayModel.GameStates.Init;
         }
+
+        public void ExitGame()
+        {
+            Application.Quit();
+        }
     }
 }
