@@ -1,8 +1,6 @@
-﻿using System;
-using Models;
+﻿using Models;
 using ScriptableObjects;
 using UnityEngine;
-using Views;
 using Random = UnityEngine.Random;
 
 namespace Controllers

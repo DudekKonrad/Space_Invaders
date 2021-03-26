@@ -15,11 +15,11 @@ public class InputWindow : MonoBehaviour
     private void Start()
     {
         inputField.characterLimit = 7;
-        var isEmpty = !HighScoreModel.Instance.HighScoreList.Any();
+        var isEmpty = !HighScoreModel.Instance.HighScoreList.highScoreList.Any();
         if (!isEmpty)
         {
             HighScoreModel.Instance.SortHighScores();
-            _highestHighScore = HighScoreModel.Instance.HighScoreList[HighScoreModel.Instance.HighScoreList.Count - 1].score;
+            _highestHighScore = HighScoreModel.Instance.HighScoreList.highScoreList[HighScoreModel.Instance.HighScoreList.highScoreList.Count - 1].score;
         }
         else
         {
@@ -38,7 +38,8 @@ public class InputWindow : MonoBehaviour
     public void AddToHighScores()
     {
         _playerHighScore = new HighScoreModel.HighScore(GameplayModel.Instance.Score, inputField.text);
-        HighScoreModel.Instance.HighScoreList.Add(_playerHighScore);
+        HighScoreModel.Instance.HighScoreList.highScoreList.Add(_playerHighScore);
+        HighScoreModel.Instance.HighScoreList.Print();
         HighScoreModel.Instance.SortHighScores();
         HighScoreModel.Instance.SetHighScores();
         SceneManager.LoadScene("MainMenu");

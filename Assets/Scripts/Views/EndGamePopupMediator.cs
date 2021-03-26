@@ -1,4 +1,5 @@
-﻿using Models;
+﻿using System.Linq;
+using Models;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +8,7 @@ namespace Views
     public class EndGamePopupMediator : MonoBehaviour
     {
         private Leaderboard _leaderboard;
-        public GameObject endGamepanel;
+        public GameObject endGamePanel;
         public Text finalScoreText;
         public Text highScoreText;
 
@@ -19,21 +20,22 @@ namespace Views
             }
             else
             {
-                endGamepanel.gameObject.SetActive(false);
+                endGamePanel.gameObject.SetActive(false);
             }
         }
 
         private void StartEndGamePopup()
         {
-            endGamepanel.gameObject.SetActive(true);
+            endGamePanel.gameObject.SetActive(true);
             finalScoreText.text = $"Your Score: {GameplayModel.Instance.Score}";
-            if (HighScoreModel.Instance.HighScoreList[0] == null)
+            var isEmpty = !HighScoreModel.Instance.HighScoreList.highScoreList.Any();
+            if (isEmpty)
             {
                 highScoreText.text = $"High Score: 0";    
             }
             else
             {
-                highScoreText.text = $"High Score: {HighScoreModel.Instance.HighScoreList[0].score}";   
+                highScoreText.text = $"High Score: {HighScoreModel.Instance.HighScoreList.highScoreList[0].score}";   
             }
         }
     }

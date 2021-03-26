@@ -24,7 +24,7 @@ namespace Controllers
                 case GameplayModel.GameStates.Init:
                     GameplayModel.Instance.Lives = playerConfig.lives;
                     GameplayModel.Instance.Score = playerConfig.score;
-                    GameplayModel.Instance.CurrWave = 9;
+                    GameplayModel.Instance.CurrWave = 0;
                     GameplayModel.Instance.IsUfoAlive = true;
                     enemySpawner.InitWaves();
                     enemySpawner.SpawnAliens();

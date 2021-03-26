@@ -11,8 +11,6 @@ namespace Views
 
         private void Start()
         {
-            //scoreText.text = "Score: " + GameplayModel.Instance.Score;
-            //scoreText.text = string.Format("Score: {0}", GameplayModel.Instance.Score);
             scoreText.text = $"Score: {GameplayModel.Instance.Score}";
         }
 

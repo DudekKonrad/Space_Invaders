@@ -11,15 +11,24 @@ public class Leaderboard : MonoBehaviour
 
     public void LoadTable()
     {
-        var counter = 0;
+        int size;
+        if (HighScoreModel.Instance.HighScoreList.highScoreList.Count <= HighScoreModel.Instance.MAXSize)
+        {
+            size = HighScoreModel.Instance.HighScoreList.highScoreList.Count;
+        }
+        else
+        {
+            size = HighScoreModel.Instance.MAXSize;
+        }
+        var counter = 1;
         HighScoreModel.Instance.SortHighScores();
-        foreach (var highScore in HighScoreModel.Instance.HighScoreList)
+        for (var i = 0; i < size; i++)
         {
             var newHighScore = Instantiate(highScoreTemplate, highScoreContainer.transform);
             newHighScore.transform.Translate(Vector3.down * 20 * counter);
             newHighScore.transform.Find("posText").GetComponent<Text>().text = counter.ToString();
-            newHighScore.transform.Find("scoreText").GetComponent<Text>().text = highScore.score.ToString();
-            newHighScore.transform.Find("nameText").GetComponent<Text>().text = highScore.playerName;
+            newHighScore.transform.Find("scoreText").GetComponent<Text>().text = HighScoreModel.Instance.HighScoreList.highScoreList[i].score.ToString();
+            newHighScore.transform.Find("nameText").GetComponent<Text>().text = HighScoreModel.Instance.HighScoreList.highScoreList[i].playerName;
             newHighScore.SetActive(true);
             counter++;
         }
