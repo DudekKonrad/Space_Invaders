@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 5202474321338821989}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7, y: 7, z: 1}
+  m_LocalScale: {x: 7, y: 7, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -168,3 +168,6 @@ MonoBehaviour:
   enemyProjectile: {fileID: 3743027250296067086, guid: feef6e58b6d57d44aa907d503d32a003,
     type: 3}
   enemyConfig: {fileID: 11400000, guid: 99f3d5c03f4838f4b9632654363f265b, type: 2}
+  particles: {fileID: 7278419698633040038, guid: 3a6d8beff1a47e34499719ca22522bf3,
+    type: 3}
+  particlesClone: {fileID: 0}
