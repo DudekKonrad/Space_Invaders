@@ -34,7 +34,7 @@ namespace Controllers
                 
                 //COUNTDOWN STATE
                 case GameplayModel.GameStates.Countdown:
-                    StartCoroutine(CountdownToStart(3));
+                    StartCoroutine(CountdownToStart(GameplayModel.Instance.CountdownTime));
                     break;
                 
                 //GAMEPLAY STATE

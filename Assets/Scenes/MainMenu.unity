@@ -504,7 +504,7 @@ RectTransform:
   m_Children:
   - {fileID: 125725783}
   m_Father: {fileID: 1080358408}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1690,7 +1690,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1080358408
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1703,8 +1703,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1578401843}
-  - {fileID: 1418394431}
   - {fileID: 263981024}
+  - {fileID: 1418394431}
   m_Father: {fileID: 1717448819}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1937,7 +1937,7 @@ RectTransform:
   m_Children:
   - {fileID: 1793328295}
   m_Father: {fileID: 1080358408}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2007,10 +2007,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1717448820}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: CloseTable
-        m_Mode: 1
+      - m_Target: {fileID: 1080358407}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
