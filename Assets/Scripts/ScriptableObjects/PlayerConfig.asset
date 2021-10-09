@@ -15,4 +15,4 @@ MonoBehaviour:
   lives: 3
   xRange: 8
   score: 0
-  speed: 10
+  speed: 7
