@@ -27,6 +27,7 @@ namespace Controllers
                     GameplayModel.Instance.Score = playerConfig.score;
                     GameplayModel.Instance.CurrWave = 0;
                     GameplayModel.Instance.IsUfoAlive = true;
+                    GameplayModel.Instance.Shooting = GameplayModel.ShootingStyle.Single;
                     enemySpawner.InitWaves();
                     enemySpawner.SpawnAliens();
                     GameplayModel.Instance.CountdownTime = gameplayConfig.countDownTime;

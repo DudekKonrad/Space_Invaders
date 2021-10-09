@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Controllers.Enemies;
+using Controllers.Player;
+using UnityEngine;
 
 namespace Controllers
 {

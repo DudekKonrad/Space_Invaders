@@ -18,9 +18,17 @@
             Hard
         }
 
+        public enum ShootingStyle
+        {
+            Single,
+            Double
+        }
+
         public GameStates GameState { get; set; } = GameStates.MainMenu;
 
-        public Difficulties Difficulty { get; set; }
+        public Difficulties Difficulty { get; set; } = Difficulties.Hard;
+
+        public ShootingStyle Shooting { get; set; } = ShootingStyle.Single;
 
         public int Score { get; set; }
 
@@ -30,6 +38,8 @@
         public int CountdownTime{ get; set; }
         public bool IsUfoAlive { get; set; }
         public int NumberOfEnemies { get; set; }
+        
+        public int NumberOfProjectiles { get; set; }
         
     }
 }

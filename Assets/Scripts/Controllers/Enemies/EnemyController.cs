@@ -1,9 +1,10 @@
-﻿using Models;
+﻿using Controllers.Player;
+using Models;
 using ScriptableObjects;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Controllers
+namespace Controllers.Enemies
 {
     public class EnemyController : MonoBehaviour
     {
@@ -24,6 +25,7 @@ namespace Controllers
             {
                 particlesClone = Instantiate(particles, gameObject.transform.position, particles.transform.rotation);
                 particlesClone.GetComponent<ParticleSystem>().Play();
+                EnemyDrop();
             }
         }
 
@@ -33,7 +35,6 @@ namespace Controllers
             {
                 EnemyMove();
                 EnemyShoot();
-                EnemyDrop();
             }
         }
 

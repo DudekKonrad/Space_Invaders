@@ -1,8 +1,9 @@
-﻿using Models;
+﻿using Controllers.Enemies;
+using Models;
 using ScriptableObjects;
 using UnityEngine;
 
-namespace Controllers
+namespace Controllers.Player
 {
     public class PlayerProjectileController : MonoBehaviour
     {

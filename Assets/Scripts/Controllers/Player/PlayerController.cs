@@ -2,7 +2,7 @@
 using UnityEngine;
 using Views;
 
-namespace Controllers
+namespace Controllers.Player
 {
     [RequireComponent(typeof(PlayerInputMediator))]
     public class PlayerController : MonoBehaviour
