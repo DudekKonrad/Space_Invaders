@@ -26,8 +26,8 @@ namespace Views
             }
             if (GameplayModel.Instance.CountdownTime != _lastCountDownTime)
             {
-                _lastCountDownTime = GameplayModel.Instance.Score;
                 scoreText.text = $"{GameplayModel.Instance.CountdownTime}";
+                _lastCountDownTime = GameplayModel.Instance.Score;
             }
         }
     }

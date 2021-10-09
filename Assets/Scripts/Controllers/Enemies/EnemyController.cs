@@ -16,6 +16,7 @@ namespace Controllers
         public EnemyScriptable enemyConfig;
         public GameObject particles;
         public GameObject particlesClone;
+        public GameObject bonusDrop;
 
         private void OnCollisionEnter2D (Collision2D other)
         {
@@ -31,7 +32,8 @@ namespace Controllers
             if (GameplayModel.Instance.GameState == GameplayModel.GameStates.Gameplay)
             {
                 EnemyMove();
-                EnemyShoot();   
+                EnemyShoot();
+                EnemyDrop();
             }
         }
 
@@ -60,6 +62,15 @@ namespace Controllers
                 _numOfMoves = -enemyConfig.numberOfMoves;
                 _direction = -_direction;
                 _timer = 0;
+            }
+        }
+
+        private void EnemyDrop()
+        {
+            if (Random.Range(0f, enemyConfig.dropRate) < 1)
+            {
+                var position = enemy.transform.position;
+                Instantiate(bonusDrop, new Vector3(position.x, position.y - 0.4f,0), transform.rotation);
             }
         }
     }

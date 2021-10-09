@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Controllers.MainMenu;
 using Models;
 using ScriptableObjects;
 using UnityEngine;
@@ -34,7 +35,7 @@ namespace Controllers
                 
                 //COUNTDOWN STATE
                 case GameplayModel.GameStates.Countdown:
-                    StartCoroutine(CountdownToStart(3));
+                    StartCoroutine(CountdownToStart(GameplayModel.Instance.CountdownTime));
                     break;
                 
                 //GAMEPLAY STATE
