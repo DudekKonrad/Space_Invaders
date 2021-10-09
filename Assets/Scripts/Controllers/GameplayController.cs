@@ -13,7 +13,6 @@ namespace Controllers
         public PlayerScriptable playerConfig;
         public GameplayScriptable gameplayConfig;
         public EnemySpawner enemySpawner;
-        //private DifficultyController _difficultyController;
         private void Update()
         {
             switch (GameplayModel.Instance.GameState)
@@ -24,7 +23,6 @@ namespace Controllers
             
                 //INIT STATE
                 case GameplayModel.GameStates.Init:
-                    //_difficultyController.DifficultyCheck();
                     GameplayModel.Instance.Lives = playerConfig.lives;
                     GameplayModel.Instance.Score = playerConfig.score;
                     GameplayModel.Instance.CurrWave = 0;

@@ -50,6 +50,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -170,3 +171,6 @@ MonoBehaviour:
   particles: {fileID: 7278419698633040038, guid: 3a6d8beff1a47e34499719ca22522bf3,
     type: 3}
   particlesClone: {fileID: 0}
+  bonusDrop: {fileID: 4667644295595951911, guid: 90b1a2c82979d8c45ba93e9c637d1c98,
+    type: 3}
+  bonusDropClone: {fileID: 0}

@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: EnemyConfig
   m_EditorClassIdentifier: 
   enemySpeed: 0.25
-  shootSpeed: 100
+  shootSpeed: 3000
+  dropRate: 200
   numberOfMoves: 9
