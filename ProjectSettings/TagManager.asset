@@ -9,6 +9,7 @@ TagManager:
   - UFO
   - Shield
   - Projectile
+  - PlayerProjectile
   layers:
   - Default
   - TransparentFX

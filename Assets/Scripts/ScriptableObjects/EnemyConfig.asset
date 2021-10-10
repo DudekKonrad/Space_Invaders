@@ -16,3 +16,4 @@ MonoBehaviour:
   shootSpeed: 1000
   dropRate: 1
   numberOfMoves: 9
+  enemyTimeToMove: 0.1

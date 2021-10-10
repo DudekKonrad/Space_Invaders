@@ -2,7 +2,7 @@
 using ScriptableObjects;
 using UnityEngine;
 
-namespace Controllers
+namespace Controllers.Enemies
 {
     public class EnemySpawner : MonoBehaviour
     {

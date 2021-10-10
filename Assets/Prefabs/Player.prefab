@@ -52,6 +52,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -261,11 +262,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e096e524c90c8ed4c864af21a8718730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerConfig: {fileID: 0}
   projectilePrefab: {fileID: 5488983862196948074, guid: 748bdf48eb12c794197a3c99927e7324,
     type: 3}
   projectilePrefabClone: {fileID: 0}
   shootSound: {fileID: 0}
-  speed: 10
 --- !u!114 &313973493
 MonoBehaviour:
   m_ObjectHideFlags: 0

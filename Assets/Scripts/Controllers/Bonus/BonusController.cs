@@ -1,18 +1,14 @@
 using Controllers.Player;
 using Models;
-using ScriptableObjects;
 using UnityEngine;
 
 namespace Controllers.Bonus
 {
     public class BonusController : MonoBehaviour
     {
-        public GameObject bonusDrop;
-        public ProjectileScriptable projectileConfig;
-        
         private void Start()
         {
-            Destroy(gameObject, projectileConfig.timeToDestroy + 2);
+            Destroy(gameObject, 5);
         }
         private void Update()
         {
@@ -20,12 +16,10 @@ namespace Controllers.Bonus
         }
         private void OnCollisionEnter2D(Collision2D other)
         {
-            Debug.Log($"Colission~!!aa");
             if (other.gameObject.GetComponent<PlayerController>())
             {
-                Destroy(bonusDrop);
+                Destroy(gameObject);
                 GameplayModel.Instance.Shooting = GameplayModel.ShootingStyle.Double;
-                Debug.Log($"Shooting: {GameplayModel.Instance.Shooting}");
             }
         }
     }

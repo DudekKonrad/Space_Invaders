@@ -1,4 +1,5 @@
-﻿using ScriptableObjects;
+﻿using Models;
+using ScriptableObjects;
 using UnityEngine;
 using Views;
 
@@ -39,10 +40,23 @@ namespace Controllers.Player
 
         private void OnShoot()
         {
-            if (projectilePrefabClone == null)
+            var projectiles = GameObject.FindGameObjectsWithTag("PlayerProjectile");
+            if (projectiles.Length == 0)
             {
-                projectilePrefabClone = Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
-                shootSound.PlayOneShot(shootSound.clip);
+                var position = transform.position;
+                var rotation = projectilePrefab.transform.rotation;
+                switch (GameplayModel.Instance.Shooting)
+                {
+                    case GameplayModel.ShootingStyle.Single:
+                        Instantiate(projectilePrefab, position, rotation);
+                        shootSound.PlayOneShot(shootSound.clip);
+                        break;
+                    case GameplayModel.ShootingStyle.Double:
+                        Instantiate(projectilePrefab, position - new Vector3(0.2f, 0, 0), rotation);
+                        Instantiate(projectilePrefab, position + new Vector3(0.2f, 0, 0), rotation);
+                        shootSound.PlayOneShot(shootSound.clip);
+                        break;
+                }
             }
         }
     }

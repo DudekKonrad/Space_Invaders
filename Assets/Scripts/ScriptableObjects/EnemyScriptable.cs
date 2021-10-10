@@ -9,5 +9,6 @@ namespace ScriptableObjects
         public float shootSpeed;
         public float dropRate;
         public int numberOfMoves;
+        public float enemyTimeToMove;
     }
 }

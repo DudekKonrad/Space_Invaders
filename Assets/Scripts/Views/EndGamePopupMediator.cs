@@ -7,7 +7,6 @@ namespace Views
 {
     public class EndGamePopupMediator : MonoBehaviour
     {
-        private Leaderboard _leaderboard;
         public GameObject endGamePanel;
         public Text finalScoreText;
         public Text highScoreText;

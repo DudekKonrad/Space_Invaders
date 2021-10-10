@@ -39,4 +39,11 @@ public class Leaderboard : MonoBehaviour
     {
         highScoreTable.gameObject.SetActive(false);
     }
+
+    public void ResetHighscores()
+    {
+        HighScoreModel.Instance.ResetHighScores();
+        LoadTable();
+        Application.LoadLevel(Application.loadedLevel);
+    }
 }

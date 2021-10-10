@@ -1,4 +1,6 @@
-﻿namespace Models
+﻿using Utils;
+
+namespace Models
 {
     public class GameplayModel:Singleton<GameplayModel>
     {
@@ -21,7 +23,7 @@
         public enum ShootingStyle
         {
             Single,
-            Double
+            Double,
         }
 
         public GameStates GameState { get; set; } = GameStates.MainMenu;
@@ -38,8 +40,5 @@
         public int CountdownTime{ get; set; }
         public bool IsUfoAlive { get; set; }
         public int NumberOfEnemies { get; set; }
-        
-        public int NumberOfProjectiles { get; set; }
-        
     }
 }

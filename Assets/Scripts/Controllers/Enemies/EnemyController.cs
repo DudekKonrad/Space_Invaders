@@ -9,7 +9,6 @@ namespace Controllers.Enemies
     public class EnemyController : MonoBehaviour
     {
         private float _timer;
-        private float timeToMove = 0.5f;
         private int _numOfMoves;
         private int _direction = 1;
         public GameObject enemy;
@@ -50,7 +49,7 @@ namespace Controllers.Enemies
         private void EnemyMove()
         {
             _timer += Time.deltaTime;
-            if (_timer > timeToMove && _numOfMoves < enemyConfig.numberOfMoves)
+            if (_timer > enemyConfig.enemyTimeToMove && _numOfMoves < enemyConfig.numberOfMoves)
             {
                 transform.Translate(new Vector3(enemyConfig.enemySpeed * _direction, 0, 0));
                 _timer = 0;
