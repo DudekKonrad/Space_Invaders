@@ -177,6 +177,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 5488983862196948074}
+  explosion: {fileID: 1040006057056861003, guid: 5a8f4db01dd40f740a627117ff093e1e,
+    type: 3}
   projectileConfig: {fileID: 11400000, guid: eaf99631b68b7154c84481aee9dcad34, type: 2}
 --- !u!82 &7097969402771487497
 AudioSource:

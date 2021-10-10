@@ -8,6 +8,7 @@ namespace Controllers.Player
     public class PlayerProjectileController : MonoBehaviour
     {
         public GameObject projectile;
+        public GameObject explosion;
         public ProjectileScriptable projectileConfig;
 
         private void Start()
@@ -24,6 +25,7 @@ namespace Controllers.Player
         {
             if (other.gameObject.GetComponent<EnemyController>())
             {
+                Instantiate(explosion, gameObject.transform.position, gameObject.transform.rotation);
                 Destroy(other.gameObject);
                 Destroy(projectile);
                 GameplayModel.Instance.Score++;
@@ -31,11 +33,13 @@ namespace Controllers.Player
 
             if (other.gameObject.GetComponent<UfoController>())
             {
+                Instantiate(explosion, gameObject.transform.position, gameObject.transform.rotation);
                 GameplayModel.Instance.IsUfoAlive = false;
             }
 
             if (other.gameObject.GetComponent<ShieldController>())
             {
+                Instantiate(explosion, gameObject.transform.position, gameObject.transform.rotation);
                 Destroy(projectile);
             }
         }
