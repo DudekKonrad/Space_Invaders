@@ -22,6 +22,11 @@ namespace Controllers.Enemies
             {
                 EnemyDrop();
             }
+
+            if (other.gameObject.GetComponent<ShieldController>())
+            {
+                GameplayModel.Instance.Lives = 0;
+            }
         }
 
         private void Update()
@@ -29,6 +34,7 @@ namespace Controllers.Enemies
             if (GameplayModel.Instance.GameState == GameplayModel.GameStates.Gameplay)
             {
                 EnemyMove();
+                EnemyWin();
                 EnemyShoot();
             }
         }
@@ -67,6 +73,14 @@ namespace Controllers.Enemies
             {
                 var position = enemy.transform.position;
                 Instantiate(bonusDrop, new Vector3(position.x, position.y - 0.4f,0), transform.rotation);
+            }
+        }
+
+        private void EnemyWin()
+        {
+            if (gameObject.transform.position.y <= -3f)
+            {
+                GameplayModel.Instance.Lives = 0;
             }
         }
     }

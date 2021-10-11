@@ -12,7 +12,7 @@ namespace Controllers.Bonus
         }
         private void Update()
         {
-            transform.Translate(new Vector3(0, -3 * Time.deltaTime, 0));
+            transform.Translate(new Vector3(0, -4 * Time.deltaTime, 0));
         }
         private void OnCollisionEnter2D(Collision2D other)
         {

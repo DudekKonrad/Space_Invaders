@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EnemyConfig
   m_EditorClassIdentifier: 
   enemySpeed: 0.25
-  shootSpeed: 1000
-  dropRate: 500
+  shootSpeed: 3500
+  dropRate: 1
   numberOfMoves: 9
-  enemyTimeToMove: 0.1
+  enemyTimeToMove: 0.5
