@@ -9,6 +9,7 @@ namespace Controllers.Enemies
     {
         public GameObject enemyProjectile;
         public ProjectileScriptable projectileConfig;
+        public GameObject explosion;
 
         private void Start()
         {
@@ -24,12 +25,14 @@ namespace Controllers.Enemies
         {
             if (other.gameObject.GetComponent<PlayerController>())
             {
+                Instantiate(explosion, gameObject.transform.position, gameObject.transform.rotation);
                 Destroy(enemyProjectile);
                 GameplayModel.Instance.Lives--;
             }
 
             if (other.gameObject.GetComponent<ShieldController>())
             {
+                Instantiate(explosion, gameObject.transform.position, gameObject.transform.rotation);
                 Destroy(enemyProjectile);
             }
 

@@ -147,6 +147,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyProjectile: {fileID: 3743027250296067086}
   projectileConfig: {fileID: 11400000, guid: 222e313f3a84d164e97274544ffae192, type: 2}
+  explosion: {fileID: 1040006057056861003, guid: 5a8f4db01dd40f740a627117ff093e1e,
+    type: 3}
 --- !u!82 &7050336303692426907
 AudioSource:
   m_ObjectHideFlags: 0
