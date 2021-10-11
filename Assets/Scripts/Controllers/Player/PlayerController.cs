@@ -10,7 +10,7 @@ namespace Controllers.Player
     {
         public PlayerScriptable playerConfig;
         public GameObject projectilePrefab;
-        public GameObject projectilePrefabClone;
+        public GameObject projectileShoot;
         public AudioSource shootSound;
         private PlayerInputMediator _playerInputMediator;
 
@@ -44,7 +44,8 @@ namespace Controllers.Player
             if (projectiles.Length == 0)
             {
                 var position = transform.position;
-                var rotation = projectilePrefab.transform.rotation;
+                var rotation = projectilePrefab.transform.rotation; 
+                Instantiate(projectileShoot, gameObject.transform.position + new Vector3(0, 0.8f, 0), gameObject.transform.rotation);
                 switch (GameplayModel.Instance.Shooting)
                 {
                     case GameplayModel.ShootingStyle.Single:

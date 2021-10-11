@@ -14,16 +14,12 @@ namespace Controllers.Enemies
         public GameObject enemy;
         public GameObject enemyProjectile;
         public EnemyScriptable enemyConfig;
-        public GameObject particles;
-        public GameObject particlesClone;
         public GameObject bonusDrop;
 
         private void OnCollisionEnter2D (Collision2D other)
         {
             if (other.gameObject.GetComponent<PlayerProjectileController>())
             {
-                particlesClone = Instantiate(particles, gameObject.transform.position, particles.transform.rotation);
-                particlesClone.GetComponent<ParticleSystem>().Play();
                 EnemyDrop();
             }
         }

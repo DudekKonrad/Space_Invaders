@@ -5,7 +5,7 @@ namespace Controllers.MainMenu
 {
     public class SettingsController : MonoBehaviour
     {
-        public Camera mainCamera;
+        public UnityEngine.Camera mainCamera;
         public Toggle muteToggle;
         
         public void ToggleValueChanged()

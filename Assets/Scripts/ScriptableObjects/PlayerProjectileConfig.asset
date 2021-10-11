@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 320c9bfb07497894a822690fcf092789, type: 3}
   m_Name: PlayerProjectileConfig
   m_EditorClassIdentifier: 
-  speed: 8
+  speed: 12
   timeToDestroy: 1.2

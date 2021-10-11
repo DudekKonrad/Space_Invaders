@@ -241,7 +241,7 @@ Animator:
   m_GameObject: {fileID: 6054088718177929347}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5dca65ebbc4847e41af9e5e1ab256ad6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -262,10 +262,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e096e524c90c8ed4c864af21a8718730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerConfig: {fileID: 0}
+  playerConfig: {fileID: 11400000, guid: ff56762e4e5843a48ab7ca1f4a0cefe5, type: 2}
   projectilePrefab: {fileID: 5488983862196948074, guid: 748bdf48eb12c794197a3c99927e7324,
     type: 3}
-  projectilePrefabClone: {fileID: 0}
+  projectileShoot: {fileID: 2672927566880868056, guid: c08f026fb45c0774dad0c7f8cbae67ed,
+    type: 3}
   shootSound: {fileID: 0}
 --- !u!114 &313973493
 MonoBehaviour:
