@@ -20,6 +20,7 @@ namespace Controllers.Enemies
         {
             transform.Translate(new Vector3(0, projectileConfig.speed * Time.deltaTime, 0));
         }
+        
 
         private void OnCollisionEnter2D(Collision2D other)
         {
