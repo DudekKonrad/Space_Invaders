@@ -20,21 +20,21 @@ namespace Controllers.MainMenu
                     enemySpawnerScriptable.numberOfWaves = 10;
                     enemyScriptable.shootSpeed = 3500;
                     enemyScriptable.enemyTimeToMove = 0.5f;
-                    enemyScriptable.dropRate = 100;
+                    enemyScriptable.dropRate = 50;
                     GameplayModel.Instance.Difficulty = GameplayModel.Difficulties.Easy;
                     break;
                 case 1:
                     enemySpawnerScriptable.numberOfWaves = 10;
                     enemyScriptable.shootSpeed = 2500;
                     enemyScriptable.enemyTimeToMove = 0.25f;
-                    enemyScriptable.dropRate = 200;
+                    enemyScriptable.dropRate = 100;
                     GameplayModel.Instance.Difficulty = GameplayModel.Difficulties.Medium;
                     break;
                 case 2:
                     enemySpawnerScriptable.numberOfWaves = 10;
                     enemyScriptable.shootSpeed = 1000;
                     enemyScriptable.enemyTimeToMove = 0.1f;
-                    enemyScriptable.dropRate = 500;
+                    enemyScriptable.dropRate = 250;
                     GameplayModel.Instance.Difficulty = GameplayModel.Difficulties.Hard;
                     break;
             }
