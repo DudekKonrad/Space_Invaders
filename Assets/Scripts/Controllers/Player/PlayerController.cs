@@ -1,4 +1,5 @@
-﻿using Models;
+﻿using System.Collections;
+using Models;
 using ScriptableObjects;
 using UnityEngine;
 using Views;
@@ -56,9 +57,16 @@ namespace Controllers.Player
                         Instantiate(projectilePrefab, position - new Vector3(0.2f, 0, 0), rotation);
                         Instantiate(projectilePrefab, position + new Vector3(0.2f, 0, 0), rotation);
                         shootSound.PlayOneShot(shootSound.clip);
+                        StartCoroutine(EndOfBonus(5));
                         break;
                 }
             }
+        }
+        
+        private IEnumerator EndOfBonus(int secs)
+        {
+            yield return new WaitForSeconds(secs);
+            GameplayModel.Instance.Shooting = GameplayModel.ShootingStyle.Single;
         }
     }
 }

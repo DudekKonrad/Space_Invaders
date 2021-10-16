@@ -17,14 +17,14 @@ namespace Controllers.MainMenu
             switch (difficultyDropdown.value)
             {
                 case 0:
-                    enemySpawnerScriptable.numberOfWaves = 3;
+                    enemySpawnerScriptable.numberOfWaves = 10;
                     enemyScriptable.shootSpeed = 3500;
                     enemyScriptable.enemyTimeToMove = 0.5f;
                     enemyScriptable.dropRate = 100;
                     GameplayModel.Instance.Difficulty = GameplayModel.Difficulties.Easy;
                     break;
                 case 1:
-                    enemySpawnerScriptable.numberOfWaves = 6;
+                    enemySpawnerScriptable.numberOfWaves = 10;
                     enemyScriptable.shootSpeed = 2500;
                     enemyScriptable.enemyTimeToMove = 0.25f;
                     enemyScriptable.dropRate = 200;
