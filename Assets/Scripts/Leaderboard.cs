@@ -25,7 +25,7 @@ public class Leaderboard : MonoBehaviour
         for (var i = 0; i < size; i++)
         {
             var newHighScore = Instantiate(highScoreTemplate, highScoreContainer.transform);
-            newHighScore.transform.Translate(Vector3.down * 20 * counter);
+            newHighScore.transform.Translate(Vector3.down * 60 * counter);
             newHighScore.transform.Find("posText").GetComponent<Text>().text = counter.ToString();
             newHighScore.transform.Find("scoreText").GetComponent<Text>().text = HighScoreModel.Instance.HighScoreList.highScoreList[i].score.ToString();
             newHighScore.transform.Find("nameText").GetComponent<Text>().text = HighScoreModel.Instance.HighScoreList.highScoreList[i].playerName;
